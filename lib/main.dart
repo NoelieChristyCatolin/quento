@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quento/home.dart';
+import 'package:quento/home/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'Quento'),
+      home: HomePage('Quento'),
     );
   }
 }
