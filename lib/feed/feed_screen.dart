@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quento/home/bloc/feed_cubit.dart';
-import 'package:quento/home/bloc/feed_state.dart';
-import 'package:quento/home/components/feed_card.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:quento/feed/bloc/feed_cubit.dart';
+import 'package:quento/feed/bloc/feed_state.dart';
+import 'package:quento/feed/components/feed_card.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage(this.title);
+class FeedScreen extends StatefulWidget {
+  FeedScreen(this.title);
 
   final String title;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _FeedScreenState createState() => _FeedScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _FeedScreenState extends State<FeedScreen> {
 
   List<PageViewModel> pages = [];
   

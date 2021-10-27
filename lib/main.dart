@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quento/feed/bloc/feed_cubit.dart';
+import 'package:quento/feed/feed_screen.dart';
 import 'package:quento/feed_details/bloc/feed_details_cubit.dart';
-import 'package:quento/home/bloc/feed_cubit.dart';
 import 'package:quento/repository/feed_repository.dart';
-import 'package:quento/home/home_screen.dart';
+import 'package:quento/service/api_service.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,10 +17,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider<FeedCubit>(
-            create: (BuildContext context) => FeedCubit(feedRepository: FeedRepository())
+            create: (BuildContext context) => FeedCubit(feedRepository: FeedRepository(apiService: ApiService()))
           ),
           BlocProvider<FeedDetailsCubit>(
-              create: (BuildContext context) => FeedDetailsCubit(feedRepository: FeedRepository())
+              create: (BuildContext context) => FeedDetailsCubit(feedRepository: FeedRepository(apiService: ApiService()))
           ),
         ],
         child: MaterialApp(
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: HomePage('Quento'),
+          home: FeedScreen('Quento'),
         ));
   }
 }

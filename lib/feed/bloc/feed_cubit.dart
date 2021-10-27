@@ -1,4 +1,4 @@
-import 'package:quento/home/bloc/feed_state.dart';
+import 'package:quento/feed/bloc/feed_state.dart';
 import 'package:quento/repository/feed_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

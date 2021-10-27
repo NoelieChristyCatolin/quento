@@ -1,11 +1,15 @@
 import 'package:quento/models/feed.dart';
-import 'package:http/http.dart' as http;
+import 'package:quento/service/api_service.dart';
 import 'package:webfeed/webfeed.dart';
 
 class FeedRepository {
+  FeedRepository({required this.apiService});
+
+  final ApiService apiService;
+
   Future<List<Feed>> fetchFeeds() async {
     List<Feed> feeds = [];
-    final _response = await http.get(Uri.parse('https://www.buzzfeed.com/world.xml'));
+    final _response = await apiService.getFeeds();
     var feed = RssFeed.parse(_response.body);
     var items = feed.items!;
     items.forEach((element) {
