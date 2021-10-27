@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html/style.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:quento/feed_details/bloc/feed_details_cubit.dart';
 import 'package:quento/feed_details/bloc/feed_details_state.dart';
@@ -32,13 +34,21 @@ class _FeedDetailsScreenState extends State<FeedDetailsScreen> {
                   bodyWidget: Column(
                     children: [
                       Column(children: [
-                        Align(alignment: Alignment.centerLeft, child: Text('Date: ${element.date}', style: TextStyle(fontSize: 10)),),
-                        Align(alignment: Alignment.centerLeft, child: Text('Author: ${element.author}', style: TextStyle(fontSize: 10)),),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Align(alignment: Alignment.centerLeft, child: Text('Inquirer.net, the first news and information website in the Philippines, provides the most comprehensive and up-to-the-minute coverage of both local and international news.', style: TextStyle(fontSize: 16)),),
+                          child: Align(alignment: Alignment.centerLeft, child: Text('Date: ${element.date}', style: TextStyle(fontSize: 12)),),
                         ),
-                        TextButton(onPressed: () => _launchURL(element.link), child: Text('Read on site', style: TextStyle(fontSize: 10, color: Colors.cyan)))],),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Align(alignment: Alignment.centerLeft, child: Text('Author: ${element.author}', style: TextStyle(fontSize: 12)),),
+                        ),
+                        Align(alignment: Alignment.centerLeft,
+                          child: Html(data: element.description,
+                            style: {
+                              'h1': Style(fontSize: FontSize.large, fontWeight: FontWeight.normal),
+                              'p': Style(display: Display.NONE)
+                            },),),
+                        TextButton(onPressed: () => _launchURL(element.link), child: Text('Read on site', style: TextStyle(fontSize: 14, color: Colors.cyan)))],),
 
                     ],)
               ));

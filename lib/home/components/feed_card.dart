@@ -16,7 +16,6 @@ class FeedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        trailing: Icon(Icons.more_vert),
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.network(image,width: MediaQuery.of(context).size.width, height: 150,),

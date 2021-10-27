@@ -9,7 +9,7 @@ class FeedRepository {
     var feed = RssFeed.parse(_response.body);
     var items = feed.items!;
     items.forEach((element) {
-      feeds.add(Feed(title: element.title!, image: element.media!.thumbnails!.first.url!, link: element.link!, date: element.pubDate.toString(), author: element.dc!.creator!));
+      feeds.add(Feed(title: element.title!,description: element.description!, image: element.media!.thumbnails!.first.url!, link: element.link!, date: element.pubDate.toString(), author: element.dc!.creator!));
     });
     return feeds;
   }
