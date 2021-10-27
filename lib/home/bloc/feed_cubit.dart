@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FeedCubit extends Cubit<FeedState>{
   FeedCubit({required this.feedRepository}) : super(FeedState()){
     getFeeds();
-    print('getFeeds');
   }
 
   final FeedRepository feedRepository;
