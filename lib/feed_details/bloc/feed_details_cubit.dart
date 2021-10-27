@@ -10,8 +10,8 @@ class FeedDetailsCubit extends Cubit<FeedDetailsState>{
 
   final FeedRepository feedRepository;
 
-  void getFeeds(){
+  void getFeeds() async {
     print(feedRepository.fetchFeeds());
-    emit(state.copyWith(feeds:feedRepository.fetchFeeds()));
+    emit(state.copyWith(feeds: await feedRepository.fetchFeeds()));
   }
 }
